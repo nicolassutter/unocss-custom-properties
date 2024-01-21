@@ -122,3 +122,5 @@ export function customProperties(options: Options = {}): Preset {
     ],
   }
 }
+
+export default customProperties

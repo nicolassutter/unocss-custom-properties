@@ -16,24 +16,25 @@
   "scripts": {
     "dev": "vite",
     "build": "tsup",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "release": "changelogen --release"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.7.0",
     "@types/node": "^20.11.5",
     "@unocss/preset-uno": "^0.58.3",
+    "changelogen": "^0.5.5",
     "eslint": "^8.56.0",
     "eslint-config-alsacreations": "^2.1.0",
     "eslint-config-prettier": "^9.1.0",
-    "tsup": "^8.0.1",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.8",
     "prettier": "^3.2.4",
     "radash": "^11.0.0",
-    "unocss": "^0.58.3"
+    "tsup": "^8.0.1",
+    "typescript": "^5.2.2",
+    "unocss": "^0.58.3",
+    "vite": "^5.0.8"
   },
   "peerDependencies": {
     "unocss": "*"
-  },
-  "dependencies": {}
+  }
 }

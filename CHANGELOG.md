@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.2
+
+[compare changes](https://github.com/nicolassutter/unocss-custom-properties/compare/v0.0.1...v0.0.2)
+
+### 🩹 Fixes
+
+- Fix package paths ([8a64a31](https://github.com/nicolassutter/unocss-custom-properties/commit/8a64a31))
+
+### ❤️ Contributors
+
+- Nicolassutter <contact.sutter.nicolas@gmail.com>
+
 ## v0.0.1
 
 

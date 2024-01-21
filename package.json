@@ -1,11 +1,11 @@
 {
   "name": "unocss-custom-properties",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": "nicolassutter/unocss-custom-properties",
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -13,11 +13,14 @@
       "types": "./dist/index.d.ts"
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsup",
     "preview": "vite preview",
-    "release": "changelogen --release"
+    "release": "changelogen --release --push"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.7.0",

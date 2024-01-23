@@ -22,6 +22,9 @@ export default defineConfig({
       1: '1.25',
       2: '1.5',
     },
+    borderRadius: {
+      md: '1rem',
+    },
   } satisfies Theme,
   presets: [customProperties()],
 })

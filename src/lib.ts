@@ -88,7 +88,7 @@ export function customProperties(options: Options = {}): Preset {
               options,
             ),
             ...generateVars(theme.fontFamily ?? {}, 'font-family', options),
-            ...generateVars(theme.borderRadius ?? {}, 'border-radius', options),
+            ...generateVars(theme.borderRadius ?? {}, 'rounded', options),
             ...generateVars(fontSizes, 'font-size', options),
             ...generateVars(lineHeights, 'line-height', options),
           ]

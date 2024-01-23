@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.3
+
+[compare changes](https://github.com/nicolassutter/unocss-custom-properties/compare/v0.0.2...v0.0.3)
+
+### 🚀 Enhancements
+
+- Enable `borderRadius` css variables generation ([7849032](https://github.com/nicolassutter/unocss-custom-properties/commit/7849032))
+
+### ❤️ Contributors
+
+- Nicolassutter <contact.sutter.nicolas@gmail.com>
+
 ## v0.0.2
 
 [compare changes](https://github.com/nicolassutter/unocss-custom-properties/compare/v0.0.1...v0.0.2)

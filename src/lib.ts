@@ -87,7 +87,6 @@ export function customProperties(options: Options = {}): Preset {
               'letter-spacing',
               options,
             ),
-            ...generateVars(theme.borderRadius ?? {}, 'radius', options),
             ...generateVars(theme.fontFamily ?? {}, 'font-family', options),
             ...generateVars(theme.borderRadius ?? {}, 'border-radius', options),
             ...generateVars(fontSizes, 'font-size', options),

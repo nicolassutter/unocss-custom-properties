@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://github.com/nicolassutter/unocss-custom-properties/compare/v0.0.3...v0.0.4)
+
+### 🚀 Enhancements
+
+- Respect tailwind like naming convention for `borderRadius` ([8feaf7d](https://github.com/nicolassutter/unocss-custom-properties/commit/8feaf7d))
+
+### 🩹 Fixes
+
+- Remove duplicate `borderRadius` generation ([a0f13ec](https://github.com/nicolassutter/unocss-custom-properties/commit/a0f13ec))
+
+### ❤️ Contributors
+
+- Nicolassutter <contact.sutter.nicolas@gmail.com>
+
 ## v0.0.3
 
 [compare changes](https://github.com/nicolassutter/unocss-custom-properties/compare/v0.0.2...v0.0.3)

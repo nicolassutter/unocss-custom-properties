@@ -37,3 +37,16 @@ By default, the custom properties will be generated in the `:root` selector and 
 | filePath  | string  | `undefined` | The absolute path of the file to write to, if `writeFile` is set to `true` |
 | inject    | boolean | `true`      | If the custom properties should be injected to the Uno CSS `default` layer |
 | prefix    | string  | `''`        | The prefix to use for the custom properties                                |
+
+## Supported properties
+
+The following theme properties are supported:
+
+- `colors`
+- `spacing`
+- `fontWeight`
+- `letterSpacing`
+- `borderRadius`
+- `fontFamily`
+- `fontSize`
+- `lineHeight`

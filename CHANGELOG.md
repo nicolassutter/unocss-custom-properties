@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.1.0
+
+[compare changes](https://github.com/nicolassutter/unocss-custom-properties/compare/v0.0.4...v0.1.0)
+
+### 🚀 Enhancements
+
+- ⚠️  Rename `rounded` variables to `border-radius` ([2054175](https://github.com/nicolassutter/unocss-custom-properties/commit/2054175))
+- Enable support for everything in Uno CSS theme ([dad5cbf](https://github.com/nicolassutter/unocss-custom-properties/commit/dad5cbf))
+
+### 📖 Documentation
+
+- Add supported properties to documentation ([9c3c03b](https://github.com/nicolassutter/unocss-custom-properties/commit/9c3c03b))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Rename `rounded` variables to `border-radius` ([2054175](https://github.com/nicolassutter/unocss-custom-properties/commit/2054175))
+
+### ❤️ Contributors
+
+- Nicolassutter <contact.sutter.nicolas@gmail.com>
+
 ## v0.0.4
 
 [compare changes](https://github.com/nicolassutter/unocss-custom-properties/compare/v0.0.3...v0.0.4)

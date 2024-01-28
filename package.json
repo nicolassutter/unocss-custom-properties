@@ -26,6 +26,7 @@
     "@rushstack/eslint-patch": "^1.7.0",
     "@types/node": "^20.11.5",
     "@unocss/preset-uno": "^0.58.3",
+    "change-case": "^5.4.2",
     "changelogen": "^0.5.5",
     "eslint": "^8.56.0",
     "eslint-config-alsacreations": "^2.1.0",

@@ -1,8 +1,9 @@
 import type { CSSObject, Preset } from 'unocss'
 import type { Theme } from '@unocss/preset-uno'
-import { listify, crush, mapEntries, shake } from 'radash'
+import { listify, crush, mapEntries, shake, pick } from 'radash'
 import { mkdir, writeFile } from 'node:fs/promises'
 import { parse } from 'node:path'
+import { kebabCase } from 'change-case'
 
 export type Options = {
   /**
@@ -74,24 +75,31 @@ export function customProperties(options: Options = {}): Preset {
             ...(theme.lineHeight ?? {}),
           }) as Record<string, string>
 
-          const variables = [
-            ...generateVars(theme.spacing ?? {}, 'spacing', options),
-            ...generateVars(
-              crush(theme.colors ?? {}) as Record<string, string>,
+          const supportedProperties = {
+            ...pick(theme, [
+              'spacing',
+              'fontWeight',
+              'fontFamily',
+              'borderRadius',
+              'letterSpacing',
               'colors',
-              options,
-            ),
-            ...generateVars(theme.fontWeight ?? {}, 'font-weight', options),
-            ...generateVars(
-              theme.letterSpacing ?? {},
-              'letter-spacing',
-              options,
-            ),
-            ...generateVars(theme.fontFamily ?? {}, 'font-family', options),
-            ...generateVars(theme.borderRadius ?? {}, 'rounded', options),
-            ...generateVars(fontSizes, 'font-size', options),
-            ...generateVars(lineHeights, 'line-height', options),
-          ]
+            ]),
+            fontSize: fontSizes,
+            lineHeight: lineHeights,
+          }
+
+          const variables = Object.entries(supportedProperties)
+            .reduce((acc, [key, value]) => {
+              acc.push(
+                ...generateVars(
+                  (crush(value) as Record<string, string>) ?? {},
+                  kebabCase(key),
+                  options,
+                ),
+              )
+
+              return acc
+            }, [] as string[])
             .map((line) => `  ${line}`)
             .join('\n')
 

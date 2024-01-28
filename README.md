@@ -40,13 +40,26 @@ By default, the custom properties will be generated in the `:root` selector and 
 
 ## Supported properties
 
-The following theme properties are supported:
+Anything listed in the Uno CSS theme object can generate custom properties as long as `theme[property]` is a valid record.
 
-- `colors`
-- `spacing`
-- `fontWeight`
-- `letterSpacing`
-- `borderRadius`
-- `fontFamily`
-- `fontSize`
-- `lineHeight`
+⚠️ If the theme is invalid, custom properties will not be generated.
+
+```ts
+// uno.config.ts
+
+export default defineConfig({
+  theme: {
+    spacing: {
+      1: '0.25rem'
+      2: '0.5rem'
+    }, // works, this is a valid object
+    colors: {
+      gray: {
+        100: '#f7fafc',
+      }
+      blue: 'blue'
+    }, // works, this is a valid object
+    lineHeight: false // will not work, this needs to be a object
+  }
+})
+```

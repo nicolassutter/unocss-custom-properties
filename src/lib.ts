@@ -1,9 +1,9 @@
-import type { CSSObject, Preset } from 'unocss'
-import type { Theme } from '@unocss/preset-uno'
-import { listify, crush, mapEntries, shake, pick } from 'radash'
+import type { Preset } from 'unocss'
+import { listify, crush, dash } from 'radash'
 import { mkdir, writeFile } from 'node:fs/promises'
 import { parse } from 'node:path'
-import { kebabCase } from 'change-case'
+import { z } from 'zod'
+import chalk from 'chalk'
 
 export type Options = {
   /**
@@ -27,8 +27,8 @@ export type Options = {
   prefix?: string
 }
 
-function generateVars<T extends string | number | [string, string | CSSObject]>(
-  obj: Record<string, T>,
+function generateVars(
+  obj: Record<string, string | number>,
   prefix: string,
   options: Options,
 ) {
@@ -53,53 +53,55 @@ export function customProperties(options: Options = {}): Preset {
        * Génération des variables CSS à partir du thème
        */
       {
-        getCSS: async ({ theme: t }) => {
-          const theme = t as Theme
+        getCSS: async ({ theme }) => {
+          const stringOrNum = z.union([z.string(), z.number()])
 
-          const fontSizes = mapEntries(theme.fontSize ?? {}, (key, value) => {
-            const val = typeof value === 'string' ? value : value[0]
-            return [key, val]
-          })
+          /** A valid record for any value in the theme */
+          const themeValue = z
+            .record(
+              z.string(),
+              stringOrNum.or(z.record(stringOrNum, stringOrNum)),
+            )
+            .transform(
+              (value) => crush(value) as Record<string, string | number>,
+            )
 
-          /**
-           * Generate line-heights based on values from fontSize and lineHeight
-           */
-          const lineHeights = shake({
-            ...mapEntries(theme.fontSize ?? {}, (key, value) => {
-              if (typeof value === 'string') return [key, undefined]
+          const safeThemeSchema = z
+            .object({
+              fontSize: z
+                .record(
+                  stringOrNum,
+                  z.union([
+                    z.string(),
+                    z
+                      .tuple([stringOrNum, z.any()])
+                      .transform((tuple) => tuple[0]),
+                  ]),
+                )
+                .optional(),
+            })
+            .catchall(themeValue)
 
-              const [_, v] = value
-              const val = typeof v === 'string' ? v : v.lineHeight
-              return [key, val]
-            }),
-            ...(theme.lineHeight ?? {}),
-          }) as Record<string, string>
+          // type Theme = z.infer<typeof safeThemeSchema>
 
-          const supportedProperties = {
-            ...pick(theme, [
-              'spacing',
-              'fontWeight',
-              'fontFamily',
-              'borderRadius',
-              'letterSpacing',
-              'colors',
-            ]),
-            fontSize: fontSizes,
-            lineHeight: lineHeights,
+          const parsingRes = safeThemeSchema.safeParse(theme)
+
+          if (!parsingRes.success) {
+            console.warn(
+              '⚠️ ',
+              chalk.yellow(
+                '[unocss-custom-properties] Theme is invalid, skipping custom properties generation.',
+              ),
+            )
+
+            return ''
           }
 
-          const variables = Object.entries(supportedProperties)
-            .reduce((acc, [key, value]) => {
-              acc.push(
-                ...generateVars(
-                  (crush(value) as Record<string, string>) ?? {},
-                  kebabCase(key),
-                  options,
-                ),
-              )
+          const safeTheme = parsingRes.data
 
-              return acc
-            }, [] as string[])
+          const variables = Object.entries(safeTheme)
+            .map(([key, value]) => generateVars(value, dash(key), options))
+            .flat()
             .map((line) => `  ${line}`)
             .join('\n')
 

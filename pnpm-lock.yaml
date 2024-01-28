@@ -14,9 +14,9 @@ devDependencies:
   '@unocss/preset-uno':
     specifier: ^0.58.3
     version: 0.58.3
-  change-case:
-    specifier: ^5.4.2
-    version: 5.4.2
+  chalk:
+    specifier: ^5.3.0
+    version: 5.3.0
   changelogen:
     specifier: ^0.5.5
     version: 0.5.5
@@ -47,6 +47,9 @@ devDependencies:
   vite:
     specifier: ^5.0.8
     version: 5.0.8(@types/node@20.11.5)
+  zod:
+    specifier: ^3.22.4
+    version: 3.22.4
 
 packages:
 
@@ -1632,10 +1635,6 @@ packages:
   /chalk@5.3.0:
     resolution: {integrity: sha512-dLitG79d+GV1Nb/VYcCDFivJeK1hiukt9QjRNVOsUtTy1rR1YJsmpGGTZ3qJos+uw7WmWF4wUwBd9jxjocFC2w==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
-    dev: true
-
-  /change-case@5.4.2:
-    resolution: {integrity: sha512-WB3UiTDpT+vrTilAWaJS4gaIH/jc1He4H9f6erQvraUYas90uWT0JOYFkG1imdNv710XJ6gJvqynrgOHc4ihDA==}
     dev: true
 
   /changelogen@0.5.5:
@@ -3535,4 +3534,8 @@ packages:
   /yocto-queue@1.0.0:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
+    dev: true
+
+  /zod@3.22.4:
+    resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
     dev: true

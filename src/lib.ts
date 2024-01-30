@@ -66,6 +66,9 @@ export function customProperties(options: Options = {}): Preset {
               (value) => crush(value) as Record<string, string | number>,
             )
 
+          /**
+           * A valid theme object where we only keep the valid values (records)
+           */
           const safeThemeSchema = z
             .object({
               fontSize: z
@@ -80,7 +83,20 @@ export function customProperties(options: Options = {}): Preset {
                 )
                 .optional(),
             })
-            .catchall(themeValue)
+            .catchall(z.any())
+            .transform((value) =>
+              Object.fromEntries(
+                Object.entries(value)
+                  .map(([key, value]) => {
+                    const parsingRes = themeValue.safeParse(value)
+                    if (!parsingRes.success) return
+                    return [key, parsingRes.data]
+                  })
+                  .filter((v): v is [string, z.infer<typeof themeValue>] =>
+                    Boolean(v),
+                  ),
+              ),
+            )
 
           // type Theme = z.infer<typeof safeThemeSchema>
 

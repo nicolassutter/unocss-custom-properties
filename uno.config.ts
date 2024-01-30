@@ -1,8 +1,10 @@
-import { defineConfig } from 'unocss'
+import { defineConfig, presetUno } from 'unocss'
 import { customProperties } from './src/lib'
 import type { Theme } from '@unocss/preset-uno'
 
 export default defineConfig({
+  presets: [presetUno(), customProperties()],
+
   theme: {
     spacing: {
       1: '0.25rem',
@@ -26,5 +28,4 @@ export default defineConfig({
       md: '1rem',
     },
   } satisfies Theme,
-  presets: [customProperties()],
 })

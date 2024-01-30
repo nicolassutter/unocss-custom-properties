@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.1
+
+[compare changes](https://github.com/nicolassutter/unocss-custom-properties/compare/v0.1.0...v0.1.1)
+
+### 🩹 Fixes
+
+- Only keep valid records with `zod` ([f27d7c4](https://github.com/nicolassutter/unocss-custom-properties/commit/f27d7c4))
+
+### ❤️ Contributors
+
+- Nicolassutter <contact.sutter.nicolas@gmail.com>
+
 ## v0.1.0
 
 [compare changes](https://github.com/nicolassutter/unocss-custom-properties/compare/v0.0.4...v0.1.0)

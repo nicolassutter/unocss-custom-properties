@@ -59,7 +59,7 @@ export function customProperties(options: Options = {}): Preset {
           /** A valid record for any value in the theme */
           const themeValue = z
             .record(
-              z.string(),
+              z.string().refine((value) => !value.startsWith('--')),
               stringOrNum.or(z.record(stringOrNum, stringOrNum)),
             )
             .transform(

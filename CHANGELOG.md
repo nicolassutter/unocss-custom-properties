@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.2
+
+[compare changes](https://github.com/nicolassutter/unocss-custom-properties/compare/v0.1.1...v0.1.2)
+
+### 🩹 Fixes
+
+- Do not keep theme values starting with `-- ` ([4e534a1](https://github.com/nicolassutter/unocss-custom-properties/commit/4e534a1))
+
+### ❤️ Contributors
+
+- Nicolassutter <contact.sutter.nicolas@gmail.com>
+
 ## v0.1.1
 
 [compare changes](https://github.com/nicolassutter/unocss-custom-properties/compare/v0.1.0...v0.1.1)

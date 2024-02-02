@@ -31,12 +31,13 @@ export default defineConfig({
 
 By default, the custom properties will be generated in the `:root` selector and added to the Uno CSS `default` layer.
 
-| name      | type    | default     | description                                                                |
-| --------- | ------- | ----------- | -------------------------------------------------------------------------- |
-| writeFile | boolean | `false`     | If the generated CSS should be written to a file                           |
-| filePath  | string  | `undefined` | The absolute path of the file to write to, if `writeFile` is set to `true` |
-| inject    | boolean | `true`      | If the custom properties should be injected to the Uno CSS `default` layer |
-| prefix    | string  | `''`        | The prefix to use for the custom properties                                |
+| name         | type     | default     | description                                                                                                                                      |
+| ------------ | -------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| writeFile    | boolean  | `false`     | If the generated CSS should be written to a file                                                                                                 |
+| filePath     | string   | `undefined` | The absolute path of the file to write to, if `writeFile` is set to `true`                                                                       |
+| inject       | boolean  | `true`      | If the custom properties should be injected to the Uno CSS `default` layer                                                                       |
+| prefix       | string   | `''`        | The prefix to use for the custom properties                                                                                                      |
+| generateOnly | string[] | `undefined` | If specified, only the corresponding theme keys will be generated as custom properties. This should be an Array of keys available in the `theme` |
 
 ## Supported properties
 

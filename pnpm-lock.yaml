@@ -38,6 +38,9 @@ devDependencies:
   tsup:
     specifier: ^8.0.1
     version: 8.0.1(postcss@8.4.33)(typescript@5.2.2)
+  type-fest:
+    specifier: ^4.10.2
+    version: 4.10.2
   typescript:
     specifier: ^5.2.2
     version: 5.2.2
@@ -1942,7 +1945,7 @@ packages:
       prettier: 3.2.4
       strip-ansi: 7.1.0
       tsup: 7.2.0(postcss@8.4.33)(typescript@5.2.2)
-      type-fest: 4.9.0
+      type-fest: 4.10.2
     transitivePeerDependencies:
       - '@swc/core'
       - postcss
@@ -3346,8 +3349,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /type-fest@4.9.0:
-    resolution: {integrity: sha512-KS/6lh/ynPGiHD/LnAobrEFq3Ad4pBzOlJ1wAnJx9N4EYoqFhMfLIBjUT2UEx4wg5ZE+cC1ob6DCSpppVo+rtg==}
+  /type-fest@4.10.2:
+    resolution: {integrity: sha512-anpAG63wSpdEbLwOqH8L84urkL6PiVIov3EMmgIhhThevh9aiMQov+6Btx0wldNcvm4wV+e2/Rt1QdDwKHFbHw==}
     engines: {node: '>=16'}
     dev: true
 

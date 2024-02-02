@@ -1,31 +1,26 @@
 import type { Preset } from 'unocss'
-import { listify, crush, dash } from 'radash'
+import type { Theme } from '@unocss/preset-uno'
+import type { LiteralUnion, Merge } from 'type-fest'
+import { listify, crush, dash, pick } from 'radash'
 import { mkdir, writeFile } from 'node:fs/promises'
 import { parse } from 'node:path'
 import { z } from 'zod'
 import chalk from 'chalk'
 
-export type Options = {
-  /**
-   * If the generated CSS should be written to a file
-   * @default false
-   */
-  writeFile?: boolean
-  /**
-   * The path of the file to write if `writeFile` is set to `true`
-   */
-  filePath?: string
-  /**
-   * If the custom properties should be injected in the CSS `:root` selector
-   * @default true
-   */
-  inject?: boolean
-  /**
-   * The prefix to use for the custom properties
-   * @default ''
-   */
-  prefix?: string
-}
+const optionsSchema = z.object({
+  writeFile: z.boolean().optional().default(false),
+  filePath: z.string().optional(),
+  inject: z.boolean().optional().default(true),
+  prefix: z.string().optional().default(''),
+  generateOnly: z.array(z.string()).optional().default([]),
+})
+
+export type Options = Merge<
+  z.input<typeof optionsSchema>,
+  {
+    generateOnly?: LiteralUnion<keyof Theme, string>[]
+  }
+>
 
 function generateVars(
   obj: Record<string, string | number>,
@@ -39,12 +34,8 @@ function generateVars(
   )
 }
 
-export function customProperties(options: Options = {}): Preset {
-  options = {
-    inject: true,
-    prefix: '',
-    ...options,
-  }
+export function customProperties(opts?: Options): Preset {
+  const options = optionsSchema.parse(opts ?? {})
 
   return {
     name: 'custom-properties',
@@ -113,7 +104,11 @@ export function customProperties(options: Options = {}): Preset {
             return ''
           }
 
-          const safeTheme = parsingRes.data
+          let safeTheme = parsingRes.data
+
+          if (options.generateOnly && options.generateOnly.length) {
+            safeTheme = pick(safeTheme, options.generateOnly)
+          }
 
           const variables = Object.entries(safeTheme)
             .map(([key, value]) => generateVars(value, dash(key), options))

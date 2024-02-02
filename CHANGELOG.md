@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.3
+
+[compare changes](https://github.com/nicolassutter/unocss-custom-properties/compare/v0.1.2...v0.1.3)
+
+### 🚀 Enhancements
+
+- Add `generateOnly` option ([e843b7a](https://github.com/nicolassutter/unocss-custom-properties/commit/e843b7a))
+
+### ❤️ Contributors
+
+- Nicolassutter <contact.sutter.nicolas@gmail.com>
+
 ## v0.1.2
 
 [compare changes](https://github.com/nicolassutter/unocss-custom-properties/compare/v0.1.1...v0.1.2)

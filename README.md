@@ -38,6 +38,7 @@ By default, the custom properties will be generated in the `:root` selector and 
 | inject       | boolean  | `true`      | If the custom properties should be injected to the Uno CSS `default` layer                                                                       |
 | prefix       | string   | `''`        | The prefix to use for the custom properties                                                                                                      |
 | generateOnly | string[] | `undefined` | If specified, only the corresponding theme keys will be generated as custom properties. This should be an Array of keys available in the `theme` |
+| theme | 'user' \| 'default' | `undefined` | Used to specify which `theme` object to use, either the user specified theme or the whole theme (`default`) including the other presets |
 
 ## Supported properties
 

@@ -13,6 +13,7 @@ const optionsSchema = z.object({
   inject: z.boolean().optional().default(true),
   prefix: z.string().optional().default(''),
   generateOnly: z.array(z.string()).optional().default([]),
+  theme: z.enum(['user', 'default']).optional().default('default'),
 })
 
 export type Options = Merge<
@@ -44,7 +45,18 @@ export function customProperties(opts?: Options): Preset {
        * Génération des variables CSS à partir du thème
        */
       {
-        getCSS: async ({ theme }) => {
+        getCSS: async ({ theme: entireTheme, generator }) => {
+          const theme = (() => {
+            switch (options.theme) {
+              case 'user':
+                return generator.userConfig.theme ?? {}
+              case 'default':
+                return entireTheme
+              default:
+                return entireTheme
+            }
+          })()
+
           const stringOrNum = z.union([z.string(), z.number()])
 
           /** A valid record for any value in the theme */

@@ -3,7 +3,12 @@ import { customProperties } from './src/lib'
 import type { Theme } from '@unocss/preset-uno'
 
 export default defineConfig({
-  presets: [presetUno(), customProperties()],
+  presets: [
+    presetUno(),
+    customProperties({
+      theme: 'user',
+    }),
+  ],
 
   theme: {
     spacing: {

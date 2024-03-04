@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.4
+
+[compare changes](https://github.com/nicolassutter/unocss-custom-properties/compare/v0.1.3...v0.1.4)
+
+### 🚀 Enhancements
+
+- Add ability to generate only the user theme ([0c25293](https://github.com/nicolassutter/unocss-custom-properties/commit/0c25293))
+
+### ❤️ Contributors
+
+- Nicolassutter <contact.sutter.nicolas@gmail.com>
+
 ## v0.1.3
 
 [compare changes](https://github.com/nicolassutter/unocss-custom-properties/compare/v0.1.2...v0.1.3)

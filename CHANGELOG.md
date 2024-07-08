@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.5
+
+[compare changes](https://github.com/nicolassutter/unocss-custom-properties/compare/v0.1.4...v0.1.5)
+
+### 🏡 Chore
+
+- Update deps ([6c6253d](https://github.com/nicolassutter/unocss-custom-properties/commit/6c6253d))
+
+### 🤖 CI
+
+- Update workflow file ([c1b58d9](https://github.com/nicolassutter/unocss-custom-properties/commit/c1b58d9))
+
+### ❤️ Contributors
+
+- Nicolassutter <contact.sutter.nicolas@gmail.com>
+
 ## v0.1.4
 
 [compare changes](https://github.com/nicolassutter/unocss-custom-properties/compare/v0.1.3...v0.1.4)
